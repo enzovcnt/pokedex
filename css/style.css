@@ -1,0 +1,7 @@
+.imgPokeball:hover{
+    transform: rotate(360deg);
+}
+.imgPokeball{
+    transition: all 2s;
+    transition-timing-function: ease-in-out;
+}

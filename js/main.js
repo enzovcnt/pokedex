@@ -30,7 +30,7 @@ function getpokemon(){
 
 getpokemon();
 
-button.addEventListener('click', getpokemon);
+button.addEventListener('click', getpokemon); //networkError when I want to click
 
 
 // étape 1 = faire une carte pour un pokemon > ok

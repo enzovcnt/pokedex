@@ -7,6 +7,7 @@ const weight = document.querySelector('.weight')
 const sprite = document.querySelector('.sprite')
 //const typeImage = document.querySelector('.typeImage')
 const button = document.querySelector('.bouton')
+const buttoncries = document.querySelector('.cry')
 
 
 
@@ -31,6 +32,9 @@ function searchPokemon(){
             }
             height.innerHTML ='Height :' + data.height;
             weight.innerHTML ='Weight :' + data.weight;
+            let audio = new Audio(data.cries.latest);
+            buttoncries.addEventListener('click', audio.play());
+
 
         })
         .catch(error => console.log(error))

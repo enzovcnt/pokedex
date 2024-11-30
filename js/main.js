@@ -8,11 +8,12 @@ const sprite = document.querySelector('.sprite')
 //const typeImage = document.querySelector('.typeImage')
 const button = document.querySelector('.bouton')
 
-const pokemonName = document.querySelector('.search').value;
-const apiUrlDynamic = `https://pokeapi.co/api/v2/pokemon/` + pokemonName;
+
 
 
 function searchPokemon(){
+    const pokemonName = document.querySelector('.search').value;
+    const apiUrlDynamic = `https://pokeapi.co/api/v2/pokemon/` + pokemonName;
     fetch(apiUrlDynamic)
         .then(response => response.json())
         .then(data => {

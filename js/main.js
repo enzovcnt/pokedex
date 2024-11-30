@@ -5,9 +5,9 @@ const type2 = document.querySelector('.type2')
 const height = document.querySelector('.height')
 const weight = document.querySelector('.weight')
 const sprite = document.querySelector('.sprite')
-//const typeImage = document.querySelector('.typeImage')
+
 const button = document.querySelector('.bouton')
-const buttoncries = document.querySelector('.cry')
+
 
 
 
@@ -29,43 +29,34 @@ function searchPokemon(){
             }else{
                 type2.innerHTML = '';
                 console.log ('j ai un type')
+                //let typeNone = document.querySelector('.types')
+                //typeNone.classList.remove('type2')
+                //typeNone.classList.add('typeNone1');
             }
             height.innerHTML ='Height :' + data.height;
             weight.innerHTML ='Weight :' + data.weight;
             let audio = new Audio(data.cries.latest);
-            buttoncries.addEventListener('click', audio.play());
-
-
+            audio.play()
         })
         .catch(error => console.log(error))
 }
 
 button.addEventListener('click', searchPokemon);
 
+const typeName = document.querySelector('.tru');
+function tableType(){
+    const apiUrlType = 'https://pokeapi.co/api/v2/type'
+    fetch(apiUrlType)
+        .then(response => response.json())
+        .then(data => {
+            console.log(data)
+            typeName.innerHTML = data.name;
+            console.log(typeName.innerHTML);
+    })
+        .catch(error => console.log(error))
+}
 
-//function getPokemon(){
-        //fetch(apiUrl)
-                //.then(response => response.json())
-                //.then(data => {
-                        //const image = data.sprites.front_default;
-                        //const imageType = data.types[0].type;
-                        //sprite.src = image;
-                        //name.innerHTML = data.name;
-                        //type1.innerHTML = data.types[0].type.name;
-                        //type2.innerHTML = data.types[1].type.name;
-                        //typeImage.src = imageType;
-                        //height.innerHTML ='Height :' + data.height;
-                        //weight.innerHTML ='Weight :' + data.weight;
-    //})
-    //.catch(error => console.log(error))
-
-//}
-
-//getPokemon();
-
-
-
-
+tableType();
 
 
 

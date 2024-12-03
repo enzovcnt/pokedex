@@ -43,6 +43,8 @@ function searchPokemon(){
 
 button.addEventListener('click', searchPokemon);
 
+
+//table des types
 const typeName = document.querySelector('.tru');
 function tableType(){
     const apiUrlType = 'https://pokeapi.co/api/v2/type'
@@ -58,12 +60,22 @@ function tableType(){
 
 tableType();
 
+function createTable(){
+    for (let i = 0; i < 20; i++){
+        let newCell = document.createElement("th");
+        let textCell = document.createTextNode("fire");
+
+        const currentCell = document.querySelector("tr");
+        currentCell.innerHTML = newCell.appendChild(textCell);
+    }
+}
 
 
+createTable();
 // étape 1 = faire une carte pour un pokemon > ok
 // étape 2 = url dynamique > ${} ?? ok
 // étape 3 = recherche possible selon le nom du pokemon ok
-// étape 4 = afficher tout les pokemons sur la même page
+// étape 4 = afficher tout les noms pokemons sur la même page
 // étape 5 = faire table des types
 // étape 6 = faire une page ou menu déroulant pour les objets/baies
 // étpae 7 = mettre toutes les variantes d'un pokemon

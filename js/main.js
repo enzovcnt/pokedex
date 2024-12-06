@@ -1,4 +1,4 @@
-//const apiUrl = `https://pokeapi.co/api/v2/pokemon/mewtwo`
+
 const name = document.querySelector('.name')
 const type1 = document.querySelector('.type1')
 const type2 = document.querySelector('.type2')
@@ -44,39 +44,33 @@ function searchPokemon(){
 button.addEventListener('click', searchPokemon);
 
 
-//table des types
-const typeName = document.querySelector('.tru');
-function tableType(){
-    const apiUrlType = 'https://pokeapi.co/api/v2/type'
-    fetch(apiUrlType)
+//liste des noms de pokemon
+function listPokemon(){
+    const apiUrlPokemon = `https://pokeapi.co/api/v2/pokemon`
+    const width = 20
+    const un = document.querySelector('.trotro')
+    fetch(apiUrlPokemon)
         .then(response => response.json())
         .then(data => {
             console.log(data)
-            typeName.innerHTML = data.name;
-            console.log(typeName.innerHTML);
-    })
-        .catch(error => console.log(error))
+            for (let i = 0; i < width; i++) {
+                const nom = document.createElement('span')
+                un.appendChild(nom)
+            }
+        })
 }
 
-tableType();
-
-function createTable(){
-    for (let i = 0; i < 20; i++){
-        let newCell = document.createElement("th");
-        let textCell = document.createTextNode("fire");
-
-        const currentCell = document.querySelector("tr");
-        currentCell.innerHTML = newCell.appendChild(textCell);
-    }
-}
+listPokemon()
 
 
-createTable();
+
+
+
 // étape 1 = faire une carte pour un pokemon > ok
 // étape 2 = url dynamique > ${} ?? ok
 // étape 3 = recherche possible selon le nom du pokemon ok
 // étape 4 = afficher tout les noms pokemons sur la même page
-// étape 5 = faire table des types
+// étape 5 = faire table des types X
 // étape 6 = faire une page ou menu déroulant pour les objets/baies
 // étpae 7 = mettre toutes les variantes d'un pokemon
 // étape 4 = passer d'une simple promesse à async et await > m'a lair d'être le plus utilisé

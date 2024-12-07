@@ -47,17 +47,19 @@ button.addEventListener('click', searchPokemon);
 //liste des noms de pokemon
 function listPokemon(){
     const apiUrlPokemon = `https://pokeapi.co/api/v2/pokemon`
-    const width = 20
-    const un = document.querySelector('.trotro')
+    const divListe = document.querySelector('.trotro')
     fetch(apiUrlPokemon)
         .then(response => response.json())
         .then(data => {
-            console.log(data)
-            for (let i = 0; i < width; i++) {
-                const nom = document.createElement('span')
-                un.appendChild(nom)
-            }
+            console.log(data);
+            data.results.forEach(pokemon => {
+                const list = document.createElement('li');
+                list.innerHTML = pokemon.name;
+                divListe.appendChild(list);
+            })
+            console.log(listPokemon)
         })
+        .catch(error => console.log(error));
 }
 
 listPokemon()

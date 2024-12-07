@@ -10,7 +10,7 @@ const button = document.querySelector('.bouton')
 
 
 
-function searchPokemon(){
+function searchPokemon() {
     const pokemonName = document.querySelector('.search').value;
     const apiUrlDynamic = `https://pokeapi.co/api/v2/pokemon/` + pokemonName;
     fetch(apiUrlDynamic)
@@ -41,8 +41,9 @@ button.addEventListener('click', searchPokemon);
 
 //liste des noms de pokemon
 function listPokemon(){
-    const apiUrlPokemon = `https://pokeapi.co/api/v2/pokemon`
+    let apiUrlPokemon = `https://pokeapi.co/api/v2/pokemon`
     const divListe = document.querySelector('.divPoke')
+
     fetch(apiUrlPokemon)
         .then(response => response.json())
         .then(data => {
@@ -57,13 +58,22 @@ function listPokemon(){
                 list.addEventListener('click', function(){
                     buttonsPokemon(pokemon.name);  //appelle la fonction à chaque clic
                 });
-
             })
+            const next = document.querySelector('.btnNext');
+
+
+
         })
         .catch(error => console.log(error));
 }
 
 listPokemon()
+
+
+
+//const previous = document.querySelector('.btnPrevious');
+//
+
 
 function buttonsPokemon(pokemonName){
     const apiUrlDynamic = `https://pokeapi.co/api/v2/pokemon/` + pokemonName;
@@ -90,4 +100,3 @@ function buttonsPokemon(pokemonName){
         .catch(error => console.log(error))
 }
 
-//data.name = comme une const juste à lui faire appel

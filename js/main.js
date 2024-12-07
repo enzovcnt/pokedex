@@ -7,10 +7,6 @@ const weight = document.querySelector('.weight')
 const sprite = document.querySelector('.sprite')
 
 const button = document.querySelector('.bouton')
-const buttonList = document.querySelectorAll('.buttonPokemon')
-
-
-
 
 
 

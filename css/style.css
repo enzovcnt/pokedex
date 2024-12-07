@@ -9,3 +9,8 @@
     display: flex;
     justify-content: center;
 }
+.buttonPokemon{
+    width: 120px;
+    margin: 10px;
+
+}

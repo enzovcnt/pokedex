@@ -53,7 +53,10 @@ function listPokemon(){
         .then(data => {
             console.log(data);
             data.results.forEach(pokemon => {
-                const list = document.createElement('li');
+                const list = document.createElement('button');
+                list.classList.add('buttonPokemon');
+                list.classList.add('btn');
+                list.classList.add('btn-danger');
                 list.innerHTML = pokemon.name;
                 divListe.appendChild(list);
             })
